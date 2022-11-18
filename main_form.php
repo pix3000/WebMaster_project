@@ -41,7 +41,7 @@
 			 ?>
 				<ul>
 			      <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
-			      <li><a href="#news">News</a></li>
+			      <li><a href="#news onclick="location.href='main_form.php'">News</a></li>
 			     <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
 			      <li><a href="#explore">Explore</a></li>
 			
