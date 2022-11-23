@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "css/sign.css">
+    <title>Free to Image 회원가입</title>
+</head>
+<body>
+    <div class="logo">
+        <h3 id = "clock" style = "color: #fff; text-align: left;">00:00:00</h2>
+        <h1 style="font-size: 50px; color: #FFF">[: Free To Image]</h1>
+        <h2 style= "color: #FFF">Free To Image: 자유로운 이미지 놀이터</h2>
+        <h3 style="color:#909090; display:inline;">저희의 웹 사이트에 방문한 것을 진심으로 환영합니다!</h3>
+        <br></br>
+    </div>
+        
+    <form name = "sign_up" id="form_id"  method = "POST" action = "db_insert.php">
+        <div class = "make_id">
+            <input type = "text" name ="login_id" id = "login_id" placeholder="아이디">  
+            <input type = "button" value = "중복확인" class = "sign_button"  style = "float:right"/><br>  
+            <input type = "password" placeholder = "비밀번호" name = "login_password" id = "login_password"><br>
+            <input type = "password" placeholder = "비밀번호 확인" name = "equal_password" id = "equal_password">
+            <input type = "button" value = "비밀번호 확인" class = "sign_button" style = "float:right"><br>
+            <input type = "text" placeholder = "이름" name = "user_name" id = "user_name" ><br>
+
+            <input type = "text" placeholder = "이메일" name = "user_email_1rd" id = "user_email_1rd"><p>@</p><input type = "text" name = "user_email_2nd" id = "user_email_2nd">
+            <input type = "submit" value = "회원가입" class = "sign_button" style = "float:right;">
+        </div>
+    </form>
+    
+    <div class="bottom" style = "text-align: center;">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button class="sign_button" onclick="location.href='main_form.php'">홈으로</button><br><br>
+        <h3 style="color:#909090">모두가 제약없이 이미지를 올리고 내려받을 수 있는 창작 사이트를 만들도록 노력하겠습니다</h3>
+        <h3 style="color:#909090">✉ e-mail: pix3000@naver.com</h3>
+        <br><br><br><br><br><br>
+    </div>
+    <script src = "js/clock.js"></script>
+    <script src = "js/no_empty.js"></script>
+</body>
+</html>

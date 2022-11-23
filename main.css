@@ -142,3 +142,31 @@
 	  clip:rect(0,0,0,0);
 	  border: 0;
 	}
+
+	.filebox input[type = 'submit']{
+		display: inline-block;
+	  padding: .5em .75em;
+	  color: #fff;
+	  font-size:20px;
+	  line-height: normal;
+	  vertical-align: middle;
+	  background-color: #000000;
+	  cursor: pointer;
+	  border: 1px solid #ebebeb;
+	  border-bottom-color: #e2e2e2;
+	  
+	}
+
+#home{
+	display: inline-block;
+	padding: .5em .75em;
+	color: #fff;
+	font-size:20px;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #000000;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+	
+}
