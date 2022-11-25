@@ -1,30 +1,52 @@
 <?php
-    $server_name = "localhost";
-    $user = "root";
-    $password = "";
-    $db_name = "test";
-    $connect = mysqli_connect($server_name, $user, $password, $db_name);
+    $id   = $_POST["id"];
+    $pass = $_POST["pass"];
 
-    $user_id = $_POST["login_id"];
-    $user_password = $_POST["login_password"];
+   $con = mysqli_connect("localhost", "root", "", "fti");
+   $sql = "select * from users where id='$id'";
+   $result = mysqli_query($con, $sql);
 
-    $id_sql = "select * from user_info where id = '$user_id'";
-    $result = mysqli_query($connect, $id_sql);
-    $row = mysqli_fetch_array($result);
-    // while($row = mysqli_fetch_array($result)){
-    //     echo '<h2>'.$row['password'].'</h2>';
-    // }
-    if($user_password != $row["password"]){
-        echo "<script>
-            alert('아이디와 비밀번호를 다시 입력해주세요');
-            location.href = 'login_form.php';
-        </script>";
+   $num_match = mysqli_num_rows($result);
+
+   if(!$num_match) 
+   {
+     echo("
+           <script>
+             window.alert('등록되지 않은 아이디입니다!')
+             history.go(-1)
+           </script>
+         ");
     }
-    else{
-        echo "<script>
-            alert('로그인에 성공하셨습니다');
-            location.href = 'main_form.php';
-        </script>";
-    }
-    mysqli_close($connect);      
+    else
+    {
+        $row = mysqli_fetch_array($result);
+        $db_pass = $row["pass"];
+
+        mysqli_close($con);
+
+        if($pass != $db_pass)
+        {
+
+           echo("
+              <script>
+                window.alert('비밀번호가 틀립니다!')
+                history.go(-1)
+              </script>
+           ");
+           exit;
+        }
+        else
+        {
+            session_start();
+            $_SESSION["userid"] = $row["id"];
+            $_SESSION["username"] = $row["name"];
+
+            echo("
+              <script>
+                alert('로그인 성공!');
+                location.href = 'main_form.php';
+              </script>
+            ");
+        }
+     }        
 ?>
