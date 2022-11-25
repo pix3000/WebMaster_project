@@ -3,37 +3,37 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel = "stylesheet" type="text/css" href = "main.css">
-<script>
-  function check_input() {
-      if (!document.Upload_form.subject.value)
-      {
-          alert("제목을 입력하세요!");
-          document.Upload_form.subject.focus();
-          return;
-      }
-      if (!document.Upload_form.content.value)
-      {
-          alert("내용을 입력하세요!");    
-          document.Upload_form.content.focus();
-          return;
-      }
-      document.Upload_form.submit();
-   }
-</script>
+	<link rel = "stylesheet" href = "main.css">
+	<style>
+		
+
+.down_btn button{
+    background: #000000;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+    padding: 2px 16px;
+    line-height: 20px;
+    
+    border:none;
+    letter-spacing:-1px;
+}
+
+
+
+	</style>
 
 	<title>Free To Image: 자유로운 이미지 놀이터</title>
 </head>
 <body>
 	<div id="wrap">
 
-		<div id="header">
+		<div id=header">
 			<div class="logo" style="text-align:center;">
 				<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
 			</div>
 		</div>
 
-		
 		<div class="login_menu">
 
 			<?php
@@ -69,52 +69,102 @@
 			      <li><a href="#news" onclick="location.href='news_form.php'">News</a></li>
 			      <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
 			      <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li>
+			     
+			
 
 		</div>
-
-
-		<!-- <div class="search_area">
+		<div class="search_area">
 				<center>
 				<br>
-				<h1 style="color:#fff;">누구나 이미지를 무료로 자유롭게 이용해보세요!</h1>
+				<h1 style="color:#fff">누구나 이미지를 무료로 자유롭게 이용해보세요!</h1>
 				<h3 style="color:#fff">자유롭고 편리한 이미지 공유 커뮤니티</h3>
 				<p>
 				<input type="text" placeholder="찾고 싶은 이미지 키워드를 입력하세요" class="search_box">
 				<button class="search_btn" onclick=" ">search</button>
 				</p>
 				</center>
-		</div> -->
-
-		<div class="Upload_box" style="background-color: #000000;">
-			<center>
-			<h1 style="font-size: 50px; color: #fff;"><b>Upload your Image</b></h1><br>
-
-
-
-			<form name="Upload_form" method="post" action="Upload_insert.php" enctype="multipart/form-data"> 
-				<div id="in_title">
-                <input type="text" name="subject" id="utitle" rows="1" cols="55" placeholder="title" maxlength="10" style="width: 1500px; height: 30px; font-size: 20px;" required>
-                </div><br>
-                <div id="in_content">
-                    <textarea name="content" id="ucontent" placeholder="content" style="width: 1500px; height: 400px; font-size: 20px" required></textarea>
-                </div>
- 				<br><br>	
-		</center>
 		</div>
-		<div class="filebox">
-			<center>
+
+		
+
+
+
+
+<section>
+	
+   	<div id="board_box" >
+<?php
+	$num  = $_GET["num"];
+	$page  = $_GET["page"];
+
+	$con = mysqli_connect("localhost", "root", "", "fti");
+	$sql = "select * from upload where num=$num";
+	$result = mysqli_query($con, $sql);
+
+	$row = mysqli_fetch_array($result);
+	$id      = $row["id"];
+	$name      = $row["name"];
+	$regist_day = $row["regist_day"];
+	$subject    = $row["subject"];
+	$content    = $row["content"];
+	$file_name    = $row["file_name"];
+	$file_type    = $row["file_type"];
+	$file_copied  = $row["file_copied"];
+	$hit          = $row["hit"];
+
+	$content = str_replace(" ", "&nbsp;", $content);
+	$content = str_replace("\n", "<br>", $content);
+
+	$new_hit = $hit + 1;
+	$sql = "update upload set hit=$new_hit where num=$num";   
+	mysqli_query($con, $sql);
+?>		
+	    <ul id="view_content" style="color:#fff; font-size:30px; padding: 20px;">
+			<li>
+				<span class="col1"><?=$subject?></span>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="col2"><?=$name?><?php echo" 님"; ?> | <?=$regist_day?></span>
+			</li><br><br>
+			<li style="font-size: 20px;">
+				<?php
+					if($file_name) {
+						$real_name = $file_copied;
+						$file_path = "./data/".$real_name;
+						$file_size = filesize($file_path);
+
+						echo "▷ 첨부파일 : $file_name ($file_size Byte) &nbsp;&nbsp;&nbsp;&nbsp;
+			       		";
+			           	}
+				?>
+				
 				<br>
-				<label for="ex_file" >Browse</label>
-				<input type="file" id="ex_file" name="upfile"> 
+				<p><?=$content?></p>
+				<img src= "./data/<?=$file_copied?>" style="width: 600px; float: left;">
 
-				<button class="upload_btn" onclick="check_input()">Upload</button>
-			</center>
-		</div>
-   </form>                
+				<div class="down_btn">
+		   			<a href= "./data/<?=$file_copied?>" download><button>이미지 원본 다운로드</button></a>
+				</div>
+			</li>	
+
+	    </ul>
+
+
+	    <ul class="buttons" style="padding: 20px;">
+	    	<br><br>
+			
+				<li><button class="delete_btn" onclick="location.href='Upload_delete.php?num=<?=$num?>&page=<?=$page?>'">Delete</button></li>
+		</ul>
+		<br>
+	</div> <!-- board_box -->
+</section> 
+
+
+
+
 
 		<div class="bottom">
 			
-			<br><br><br><br><br>
+			<br><br>
 			<h2 style="text-align: center;">저작권이 자유로운 이미지 사이트</h2>
 			<br><br>
 			<h3 style="color:#909090">모두가 제약없이 이미지를 올리고 내려받을 수 있는 창작 사이트를 만들도록 노력하겠습니다</h3>
