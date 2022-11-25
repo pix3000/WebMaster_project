@@ -1,52 +1,85 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel = "stylesheet" href = "main.css">
-
 	<title>Free To Image: 자유로운 이미지 놀이터</title>
+	  <style>
+ @keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+ 
+body { margin: 0; } 
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  top:0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  -webkit-animation: 20s slidy ease-in-out infinite;
+  animation: 20s slidy ease-in-out infinite; 
+}
+  </style>
 </head>
 <body>
-	<div id="wrap">
+<div id="wrap">
 
-		<div id="header">
-			<div class="logo" style="text-align:center;">
-				<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
-			</div>
+	<div id="header">
+		<div class="logo" style="text-align:center;">
+		<h3 id = "clock" style = "color: black; text-align: left;">00:00:00</h2>
+		<div id="slider">
+		<div class="image-box">
+			<div><img src="img_file/slide_1.jpg" /></div>
+			<div><img src="img_file/slide_2.jpg" /></div>
+			<div><img src="img_file/slide_3.jpg" /></div>
+			<div><img src="img_file/slide_4.jpg" /></div>
 		</div>
-
-		<div class="login_menu">
-			    <p style="float: left; font-size: 20px; margin: 10px"><b>🔥 실시간 인기 이미지: </b><b>#가을</b>&nbsp;<b>#단풍</b>&nbsp;<b>#하늘</b>&nbsp;<b>#겨울</b></p>
-
-
-			<?php
-    			if(!$userid) {
-			?>                
-                
-				<input type="button" value="Sign Up" class="signup_btn" style="float: right;" onclick="location.href='signup_form.html'">&nbsp;&nbsp;
-				<input type="button" value="Login" class="login_btn" style="float: right;" onclick="location.href='login_form.php'"><br><br>
-			<?php
-    		} else {
-			?>
-			    <input type="button" value="Logout" class="logout_btn" style="float: right;" onclick="location.href='main_form.php'">
-				<p style="float: right; font-size: 20px; margin: 10px"><b>
-				<?php
-				 	$id = $_POST["login_id"];
-				 	echo "{$id}님 환영합니다";
-				?>
-				</b></p>
-			<?php
-			 }
-			 ?>
-				<ul>
-			      <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
-			      <li><a href="#news">News</a></li>
-			     <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
-			      <li><a href="#explore">Explore</a></li>
-			
-
+			<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
+			<p style="float: left; font-size: 20px; margin: 15px"><b>🔥 실시간 인기 이미지: </b><b>#가을</b>&nbsp;<b>#단풍</b>&nbsp;<b>#하늘</b>&nbsp;<b>#겨울</b></p>
 		</div>
+	</div>
+<?php
+		if (isset($_SESSION['userid'])) {
+			echo '<input type="button" value="logOut" class="main_three_button" style="float: right;" onclick="logout()">';
+			echo "<h2 style = 'float:right'>{$_SESSION['userid']}님 환영합니다 </h2>";
+	?>                
+<div class="login_menu">
+	<?php
+	} else {
+	?>
+		<input type="button" value="Sign Up" class="main_three_button" style="float: right;" onclick="location.href='sign_form.html'">&nbsp;&nbsp;
+		<input type="button" value="Login" class="main_three_button" style="float: right;" onclick="location.href='login_form.php'"><br><br>
+		<p style="float: right; font-size: 20px; margin: 10px"><b>
+		</b></p>
+	<?php
+	 }
+	 ?>
+	 <br><br><br>
+		<ul>
+		  <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
+		  <li><a href="#news" onclick="location.href='news_form.php'">News</a></li>
+		  <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
+		  <li><a href="#explore" onclick = "location.href ='explore_list.php'">Explore</a></li>
+		</ul>
+	
+
+</div>
 		<div class="search_area">
 				<center>
 				<br>
@@ -60,7 +93,7 @@
 		</div>
 
 		<div id="page_b" style="background-color:#000000;">
-			<h2 style="padding: 5px; color:#fff">회원들이 올린 이미지를 구경해보세요</h2>
+		<h2 style="padding: 5px; color:#fff">회원들이 올린 이미지를 구경해보세요</h2>
 				<div class="img_card">
 					<center>
 					<!--width:1750px -->
@@ -91,11 +124,23 @@
 					<p style="padding: 1px;"></p>
 
 					<h2 style="padding: 2px;"></h2>
-					</center>
-				</div>
+			</center>
+			
+	</div>
 		</div>
+		<script>
+			function logout() {
+            const data = confirm("로그아웃 하시겠습니까?");
+            if (data) {
+                location.href = "logout.php";
+            }
+
+        }
+		</script>
+		<script src = "js/clock.js"></script>
 		<div class="bottom">
-			<button class="next_btn" onclick=" ">next page</button>
+
+		
 			<br><br>
 			<h2 style="text-align: center;">저작권이 자유로운 이미지 사이트</h2>
 			<br><br>
@@ -103,9 +148,6 @@
 			<h3 style="color:#909090">✉ e-mail: pix3000@naver.com</h3>
 			<br><br><br><br><br><br>
 		</div>
-		<script>
-			parent.ifun("성공");
-		</script>
 
 
 	</div>
