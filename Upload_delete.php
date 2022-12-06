@@ -22,7 +22,8 @@
 
     echo "
 	     <script>
-	         location.href = 'explore_list.php?page=$page';
+	     	 alert('정상적으로 삭제 되었습니다.');
+	         location.href = 'main_form.php';
 	     </script>
 	   ";
 ?>
