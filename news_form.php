@@ -15,37 +15,49 @@
 			</div>
 		</div>
 
-		<div class="login_menu">
-			    <p style="float: left; font-size: 20px; margin: 10px"><b>🔥 실시간 인기 이미지: </b><b>#가을</b>&nbsp;<b>#단풍</b>&nbsp;<b>#하늘</b>&nbsp;<b>#겨울</b></p>
 
+
+		<div class="login_menu">
 
 			<?php
+			    session_start();
+			    if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
+			    else $userid = "";
+			    if (isset($_SESSION["username"])) $username = $_SESSION["username"];
+			    else $username = "";
+
+
     			if(!$userid) {
 			?>                
                 
-				<input type="button" value="Sign Up" class="signup_btn" style="float: right;" onclick="location.href=''">&nbsp;&nbsp;
-				<input type="button" value="Login" class="login_btn" style="float: right;" onclick="location.href='login_form.php'">
-				<br><br>
+				<input type="button" value="Sign Up" class="signup_btn" style="float: right;" onclick="location.href='member_form.php'">&nbsp;&nbsp;
+				<input type="button" value="Login" class="login_btn" style="float: right;" onclick="location.href='login_form.php'"><br><br>
 			<?php
     		} else {
 			?>
-			    <input type="button" value="Logout" class="logout_btn" style="float: right;" onclick="location.href='main_form.php'">
-				<p style="float: right; font-size: 20px; margin: 10px"><b>
+			    <input type="button" value="Logout" class="logout_btn" style="float: right; width: 100px; height: 40px;border: 0px; background: #fff; color: #000000; font-size: 20px;
+		cursor: pointer;" onclick="location.href='logout.php'">&nbsp;&nbsp;
+				<p style="float: right; font-size: 20px; margin: 10px;">
+
 				<?php
-				 	$id = $_POST["login_id"];
-				 	echo "{$id}님 환영합니다";
+				 	 $logged = $username."(".$userid.")님";
+				 	echo "{$userid}님 환영합니다";
 				?>
-				</b></p>
+				</p><br><br>
 			<?php
 			 }
 			 ?>
 				<ul>
 			      <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
-			      <li><a href="#news">News</a></li>
-			     <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
-			      <li><a href="#explore">Explore</a></li>
+			      <li><a href="#news" onclick="location.href='news_form.php'">News</a></li>
+			      <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
+			      <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li>
 			     
+			
+
 		</div>
+		
+
 		<div clss="introduce" style="float: center; margin: 150px;">
 			<p style="font-size:40px"><b>프로젝트 소개</b></p>
 			<hr>

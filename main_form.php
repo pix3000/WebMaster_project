@@ -8,34 +8,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel = "stylesheet" href = "main.css">
 	<title>Free To Image: 자유로운 이미지 놀이터</title>
-	  <style>
- @keyframes slidy {
-0% { left: 0%; }
-20% { left: 0%; }
-25% { left: -100%; }
-45% { left: -100%; }
-50% { left: -200%; }
-70% { left: -200%; }
-75% { left: -300%; }
-95% { left: -300%; }
-100% { left: -400%; }
-}
- 
-body { margin: 0; } 
-div#slider { overflow: hidden; }
-div#slider figure img { width: 20%; float: left; }
-div#slider figure { 
-  position: relative;
-  width: 500%;
-  margin: 0;
-  top:0;
-  left: 0;
-  text-align: left;
-  font-size: 0;
-  -webkit-animation: 20s slidy ease-in-out infinite;
-  animation: 20s slidy ease-in-out infinite; 
-}
-  </style>
 </head>
 <body>
 <div id="wrap">
@@ -43,13 +15,6 @@ div#slider figure {
 	<div id="header">
 		<div class="logo" style="text-align:center;">
 		<h3 id = "clock" style = "color: black; text-align: left;">00:00:00</h2>
-		<div id="slider">
-		<div class="image-box">
-			<div><img src="img_file/slide_1.jpg" /></div>
-			<div><img src="img_file/slide_2.jpg" /></div>
-			<div><img src="img_file/slide_3.jpg" /></div>
-			<div><img src="img_file/slide_4.jpg" /></div>
-		</div>
 			<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
 			<p style="float: left; font-size: 20px; margin: 15px"><b>🔥 실시간 인기 이미지: </b><b>#가을</b>&nbsp;<b>#단풍</b>&nbsp;<b>#하늘</b>&nbsp;<b>#겨울</b></p>
 		</div>

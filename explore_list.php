@@ -12,6 +12,7 @@
 		<div id="header">
 			<div class="logo" style="text-align:center;">
 				<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
+				<img src = ""/>
 			</div>
 		</div>
 
