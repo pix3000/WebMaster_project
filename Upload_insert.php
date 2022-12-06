@@ -81,8 +81,10 @@
 	
 	mysqli_close($con);  
 	echo "
+		
 	   <script>
-	    location.href = 'explore_list.php';
+	   alert('성공적으로 업로드 하였습니다.');
+	    location.href = 'main_form.php';
 	   </script>
 	";
 ?>

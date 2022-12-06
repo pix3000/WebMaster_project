@@ -97,8 +97,8 @@
 
 	ul {
 		list-style-type: none;
-		margin: 0;
-		padding: 0;
+		margin: 0px;
+		padding: 0px;
 		background-color: #000000;
 	}
 
@@ -116,7 +116,7 @@
 		display: block;
 		color: white;
 		text-align: center;
-		padding: 15px 100px;
+		padding: 40px 220px;
 		text-decoration: none;
 	}
 
@@ -273,5 +273,11 @@
 	}
 	.logo{
 		text-align:center; 
+		margin :10px 0px 50px 0px;
 	}
 	
+#wrap{
+	/* background-color: #000000;
+	color:white; */
+	padding: 10px;
+}

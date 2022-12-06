@@ -9,9 +9,11 @@
 <body>
 	<div id="wrap">
 
-		<div id=header">
+		<div id="header">
 			<div class="logo" style="text-align:center;">
-				<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
+			
+			<h3 id = "clock" style = "color: black; text-align: left;">00:00:00</h3>
+				<h1 style="font-size: 50px;">[: Free To Image]</h1>
 			</div>
 		</div>
 
@@ -30,8 +32,10 @@
     			if(!$userid) {
 			?>                
                 
-				<input type="button" value="Sign Up" class="signup_btn" style="float: right;" onclick="location.href='member_form.php'">&nbsp;&nbsp;
-				<input type="button" value="Login" class="login_btn" style="float: right;" onclick="location.href='login_form.php'"><br><br>
+				<input type="button" value="Sign Up" class="signup_btn" style="float: right; width: 100px; height: 40px;border: 0px; background: black; color: white; font-size: 20px;
+					cursor: pointer;" onclick="location.href='member_form.php'">&nbsp;&nbsp;
+				<input type="button" value="Login" class="login_btn" style="float: right; width: 100px; height: 40px;border: 0px; background: black; color: white; font-size: 20px;
+					cursor: pointer;"" onclick="location.href='login_form.php'"><br><br>
 			<?php
     		} else {
 			?>
@@ -41,7 +45,7 @@
 
 				<?php
 				 	 $logged = $username."(".$userid.")님";
-				 	echo "{$userid}님 환영합니다";
+				 	echo "<h2 style = 'float:right'>{$userid}님 환영합니다</h2>";
 				?>
 				</p><br><br>
 			<?php
@@ -51,7 +55,7 @@
 			      <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
 			      <li><a href="#news" onclick="location.href='news_form.php'">News</a></li>
 			      <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
-			      <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li>
+			      <!-- <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li> -->
 			     
 			
 
@@ -81,9 +85,9 @@
 				</div>
 				<div>
 					<br>
-					<p style="padding: 10px; margin:10px"><b>🎓 student ID:</b> </p>
-					<p style="padding: 10px; margin:10px"><b>✉ e-mail:</b> </p>
-					<p style="padding: 10px; margin:10px"><b>⌨ github:</b> </p>
+					<p style="padding: 10px; margin:10px"><b>🎓 student ID: 20181111</b> </p>
+					<p style="padding: 10px; margin:10px"><b>✉ e-mail: whdrnrdl789@naver.com</b> </p>
+					<p style="padding: 10px; margin:10px">⌨ github: <a href = "https://github.com/jongkookE" >https://github.com/jongkookE</a>. </p>
 				</div>
 			</div>
 			<div>	
@@ -96,12 +100,12 @@
 					<br>
 					<p style="padding: 10px; margin:10px"><b>🎓 student ID:</b> 20191115</p>
 					<p style="padding: 10px; margin:10px"><b>✉ e-mail:</b> pix3000@naver.com</p>
-					<p style="padding: 10px; margin:10px"><b>⌨ github:</b> https://github.com/pix3000</p>
+					<p style="padding: 10px; margin:10px">⌨ github: <a href = "https://github.com/pix3000">https://github.com/pix3000</a> </p>
 				</div>
 			</div>
 
 		</div>
 		
-
+			<script src = "js/clock.js"></script>
 </body>
 </html>

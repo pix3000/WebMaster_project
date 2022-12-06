@@ -27,9 +27,9 @@
 </head>
 <body>
 	<div id="wrap">
-
-		<div id=header">
+		<div id="header">
 			<div class="logo" style="text-align:center;">
+			<h3 id = "clock" style = "color: black; text-align: left;">00:00:00</h3>
 				<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 
 				<?php
 				 	 $logged = $username."(".$userid.")님";
-				 	echo "{$userid}님 환영합니다";
+				 	echo "<h3 style = 'float:left;'> {$userid}님 환영합니다</h3>";
 				?>
 				</p><br><br>
 			<?php
@@ -68,12 +68,13 @@
 			      <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
 			      <li><a href="#news" onclick="location.href='news_form.php'">News</a></li>
 			      <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
-			      <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li>
+				</ul>
+			      <!-- <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li> -->
 			     
 			
 
 		</div>
-		<div class="search_area">
+		<!-- <div class="search_area">
 				<center>
 				<br>
 				<h1 style="color:#fff">누구나 이미지를 무료로 자유롭게 이용해보세요!</h1>
@@ -83,10 +84,10 @@
 				<button class="search_btn" onclick=" ">search</button>
 				</p>
 				</center>
-		</div>
+		</div> -->
 
 		
-
+<script src = "js/clock.js"></script>
 
 
 
@@ -123,7 +124,7 @@
 			<li>
 				<span class="col1"><?=$subject?></span>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span class="col2"><?=$name?><?php echo" 님"; ?> | <?=$regist_day?></span>
+				<span class="col2"><?=$name?><?php echo"님"; ?> | <?=$regist_day?></span>
 			</li><br><br>
 			<li style="font-size: 20px;">
 				<?php

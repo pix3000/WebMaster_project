@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="logo" style="text-align:center; background-color: #000000;">
-        <h1 style="font-size: 50px; color: #FFF"">[: Free To Image]</h1>
+        <h1 style="font-size: 50px; color: #FFF">[: Free To Image]</h1>
         <h2 style= "color: #FFF">Free To Image: 자유로운 이미지 놀이터</h2>
         <br><br>
-        <h3 style="color:#909090">저희의 웹 사이트에 방문한 것을 진심으로 환영합니다!</h3><br>
+        <h3 style="color:#909090">저희의 웹 사이트에 방문한 것을 진심으로 환영합니다!</h3>
     </div>
     
     <form name = "login_form" method = "POST" action = "login.php">
@@ -23,7 +23,7 @@
             <p>비밀번호&nbsp;&nbsp;
             <input type = "password" class = "sign" name = "pass" style="width:300px; height: 30px; font-size: 20px;" ></p><br>
             <input type = "button" class = "hover_btn" name = "sign_up" value = "회원가입" onclick = "location.href ='sign_form.html'">
-            <input type = "button" class = "hover_btn" name = "find_id" value = "아이디 찾기">
+            
             <input type = "submit" class = "hover_btn" name = "login_btn" value = "로그인">
             <script src = "null_check.js" ></script>
         </div>

@@ -28,7 +28,10 @@
 	<div id="wrap">
 
 		<div id="header">
+			
 			<div class="logo" style="text-align:center;">
+			
+				<h3 id = "clock" style = "color: black; text-align: left;">00:00:00</h3>
 				<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
 			</div>
 		</div>
@@ -47,18 +50,21 @@
     			if(!$userid) {
 			?>                
                 
-				<input type="button" value="Sign Up" class="signup_btn" style="float: right;" onclick="location.href='member_form.php'">&nbsp;&nbsp;
-				<input type="button" value="Login" class="login_btn" style="float: right;" onclick="location.href='login_form.php'"><br><br>
+				<input type="button" value="Sign Up" class="signup_btn" style="float: right; width: 100px; height: 40px;border: 0px; background: black; color: white; font-size: 20px;
+					cursor: pointer;" onclick="location.href='member_form.php'">&nbsp;&nbsp;
+				<input type="button" value="Login" class="login_btn" style="float: right; width: 100px; height: 40px;border: 0px; background: black; color: white; font-size: 20px;
+					cursor: pointer;" onclick="location.href='login_form.php'"><br><br>
+				
 			<?php
     		} else {
 			?>
 			    <input type="button" value="Logout" class="logout_btn" style="float: right; width: 100px; height: 40px;border: 0px; background: #fff; color: #000000; font-size: 20px;
-		cursor: pointer;" onclick="location.href='logout.php'">&nbsp;&nbsp;
-				<p style="float: right; font-size: 20px; margin: 10px;">
+					cursor: pointer;" onclick="location.href='logout.php'">&nbsp;&nbsp;
+				<!-- <p style="float: right; font-size: 20px; margin: 10px;"> -->
 
 				<?php
 				 	 $logged = $username."(".$userid.")님";
-				 	echo "{$userid}님 환영합니다";
+				 	echo "<h2 style = 'float:right'>{$userid}님 환영합니다</h2>";
 				?>
 				</p><br><br>
 			<?php
@@ -68,7 +74,7 @@
 			      <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
 			      <li><a href="#news" onclick="location.href='news_form.php'">News</a></li>
 			      <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
-			      <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li>
+			      <!-- <li><a href="#explore" onclick="location.href='explore_list.php'">Explore</a></li> -->
 
 		</div>
 
@@ -104,10 +110,10 @@
 		<div class="filebox">
 			<center>
 				<br>
-				<label for="ex_file" >Browse</label>
+				<label for="ex_file" >create new image</label>
 				<input type="file" id="ex_file" name="upfile"> 
 
-				<button class="upload_btn" onclick="check_input()">Upload</button>
+				<button class="upload_btn" onclick="check_input()">Upload images</button>
 			</center>
 		</div>
    </form>                
@@ -124,5 +130,7 @@
 
 
 	</div>
+	
+	<script src = "js/clock.js"></script>
 </body>
 </html>

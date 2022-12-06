@@ -14,12 +14,13 @@
 
 	<div id="header">
 		<div class="logo" style="text-align:center;">
-		<h3 id = "clock" style = "color: black; text-align: left;">00:00:00</h2>
-			<h1 style="font-size: 50px;">[: Free To Image]</h1><br>
+		<h3 id = "clock" style = "color: black; text-align: left;">00:00:00</h3>
+			<h1 id = 'header_in_logo' style="font-size: 50px;">[: Free To Image]</h1><br>
 			<p style="float: left; font-size: 20px; margin: 15px"><b>🔥 실시간 인기 이미지: </b><b>#가을</b>&nbsp;<b>#단풍</b>&nbsp;<b>#하늘</b>&nbsp;<b>#겨울</b></p>
 		</div>
 	</div>
 <?php
+
 		if (isset($_SESSION['userid'])) {
 			echo '<input type="button" value="logOut" class="main_three_button" style="float: right;" onclick="logout()">';
 			echo "<h2 style = 'float:right'>{$_SESSION['userid']}님 환영합니다 </h2>";
@@ -29,70 +30,126 @@
 	} else {
 	?>
 		<input type="button" value="Sign Up" class="main_three_button" style="float: right;" onclick="location.href='sign_form.html'">&nbsp;&nbsp;
-		<input type="button" value="Login" class="main_three_button" style="float: right;" onclick="location.href='login_form.php'"><br><br>
+		<input type="button" value="Login" class="main_three_button" style="float: right;" onclick="location.href='login_form.php'">
 		<p style="float: right; font-size: 20px; margin: 10px"><b>
 		</b></p>
 	<?php
 	 }
 	 ?>
+	
+	 
 	 <br><br><br>
 		<ul>
 		  <li><a href="#home" onclick="location.href='main_form.php'">Home</a></li>
 		  <li><a href="#news" onclick="location.href='news_form.php'">News</a></li>
 		  <li><a href="#upload" onclick="location.href='Upload_form.php'">Upload</a></li>
-		  <li><a href="#explore" onclick = "location.href ='explore_list.php'">Explore</a></li>
+		  
+		  <!-- <li><a href="#explore" onclick = "location.href ='explore_list.php'">Explore</a></li> -->
 		</ul>
 	
 
 </div>
 		<div class="search_area">
 				<center>
-				<br>
-				<h1 style="color:#fff">누구나 이미지를 무료로 자유롭게 이용해보세요!</h1>
-				<h3 style="color:#fff">자유롭고 편리한 이미지 공유 커뮤니티</h3>
-				<p>
-				<input type="text" placeholder="찾고 싶은 이미지 키워드를 입력하세요" class="search_box">
-				<button class="search_btn" onclick=" ">search</button>
-				</p>
+					<br><br><br><br><br><br><br><br><br>
+					<h1 style="color:#fff">누구나 이미지를 무료로 자유롭게 이용해보세요!</h1>
+					<h3 style="color:#fff">자유롭고 편리한 이미지 공유 커뮤니티</h3>
 				</center>
 		</div>
+		
+		<section>
 
-		<div id="page_b" style="background-color:#000000;">
-		<h2 style="padding: 5px; color:#fff">회원들이 올린 이미지를 구경해보세요</h2>
-				<div class="img_card">
-					<center>
-					<!--width:1750px -->
-					<!--첫째줄-->
-					<img style="cursor: pointer;" id="img1-1" width="380px" height="300px" src="https://cdn.pixabay.com/photo/2022/07/13/16/25/cat-7319589_960_720.jpg">
-					<img style="cursor: pointer;" id="img1-2" width="380px" height="300px" src="https://cdn.pixabay.com/photo/2022/05/29/03/40/goldfinch-7228334_960_720.jpg">
-					<img style="cursor: pointer;" id="img1-3" width="380px" height="300px" src="https://cdn.pixabay.com/photo/2022/10/31/17/31/copper-teapots-7560392_960_720.jpg">
-					<img style="cursor: pointer;" id="img1-4" width="250px" height="300px" src="https://cdn.pixabay.com/photo/2022/09/15/11/14/sea-7456253_960_720.jpg">
-					<img style="cursor: pointer;" id="img1-5" width="360px" height="300px" src="https://cdn.pixabay.com/photo/2022/10/16/13/53/early-morning-7525151_960_720.jpg">
-					<p style="padding: 1px;"></p>
+<div id="board_box">
 
-					<!--둘째줄-->
-					<img style="cursor: pointer;" id="img2-1" width="420px" height="300px" src="https://cdn.pixabay.com/photo/2022/08/08/13/59/cloud-of-bunch-of-7372799_960_720.jpg">
-					<img style="cursor: pointer;" id="img2-2" width="220px" height="300px" src="https://cdn.pixabay.com/photo/2022/09/25/09/58/houses-7477950_960_720.jpg">
-					<img style="cursor: pointer;" id="img2-3" width="370px" height="300px" src="https://cdn.pixabay.com/photo/2022/09/24/16/32/bulldog-7476727_960_720.jpg">
-					<img style="cursor: pointer;" id="img2-4" width="380px" height="300px" src="https://cdn.pixabay.com/photo/2022/04/26/01/09/tibet-7157189_960_720.jpg">
-					<img id="img2-5" width="360px" height="300px" src="https://cdn.pixabay.com/photo/2022/08/28/17/37/flower-7417160_960_720.jpg">
-					<p style="padding: 1px;"></p>
+ 
+<?php
+	if (isset($_GET["page"]))
+		$page = $_GET["page"];
+	else
+		$page = 1;
 
-					<!--셋째줄-->
-					<img id="img3-1" width="500px" height="400px" src="https://cdn.pixabay.com/photo/2016/01/19/01/42/library-1147815_960_720.jpg">
-					<img id="img3-2" width="250px" height="400px" src="https://cdn.pixabay.com/photo/2022/09/14/14/36/window-7454482_960_720.jpg">
-					<img id="img3-3" width="540px" height="400px" src="https://cdn.pixabay.com/photo/2016/11/27/21/42/stock-1863880_960_720.jpg">
-					<img id="img3-4" width="460px" height="400px" src="https://cdn.pixabay.com/photo/2015/12/04/14/05/code-1076536_960_720.jpg">
-					<p style="padding: 1px;"></p>
+	$con = mysqli_connect("localhost", "root", "", "fti");
+	$sql = "select * from upload order by num desc";
+	$result = mysqli_query($con, $sql);
+	$total_record = mysqli_num_rows($result); // 전체 글 수
 
-					<!--넷째줄-->
-					<p style="padding: 1px;"></p>
+	$scale = 10;
 
-					<h2 style="padding: 2px;"></h2>
-			</center>
+	// 전체 페이지 수($total_page) 계산 
+	if ($total_record % $scale == 0)     
+		$total_page = floor($total_record/$scale);      
+	else
+		$total_page = floor($total_record/$scale) + 1; 
+
+// 표시할 페이지($page)에 따라 $start 계산  
+	$start = ($page - 1) * $scale;      
+
+	$number = $total_record - $start;
+
+for ($i=$start; $i<$start+$scale && $i < $total_record; $i++){
+	mysqli_data_seek($result, $i);
+	// 가져올 레코드로 위치(포인터) 이동
+	$row = mysqli_fetch_array($result);
+	// 하나의 레코드 가져오기
+	$num         = $row["num"];
+	$id          = $row["id"];
+	$name        = $row["name"];
+	$subject     = $row["subject"];
+	$regist_day  = $row["regist_day"];
+	$hit         = $row["hit"];
+	$file_copied  = $row["file_copied"];
+
+	if ($row["file_name"])
+		$file_image = "<img src='./img/file.gif'>";
+	else
+		$file_image = " ";
+	?>
+			<li class="DOCTYPE" style="padding: 20px;">
+				<span class="col1"><a href="Upload_view.php?num=<?=$num?>&page=<?=$page?>"><?=$subject?></a></span>
+				<span class="col2"><img src= "./data/<?=$file_copied?>" style="width: 400px; float: left;"></span>
+			</li>	
+	<?php
+		$number--;
+	}
+		mysqli_close($con);
+
+	?>
+		</ul>
+		<ul id="page_num"> 	
+	<?php
+	if ($total_page>=2 && $page >= 2)	{
+		$new_page = $page-1;
+		echo "<li><a href='explore_list.php?page=$new_page'>◀ 이전</a> </li>";
+	}		
+	else 
+		echo "<li>&nbsp;</li>";
+
+	// 게시판 목록 하단에 페이지 링크 번호 출력
+	for ($i=1; $i<=$total_page; $i++){
+		if ($page == $i)     // 현재 페이지 번호 링크 안함
+	{
+		echo "<li><b> $i </b></li>";
+	}
+	else
+	{
+		echo "<li><a href='explore_list.php?page=$i'> $i </a><li>";
+	}
+	}
+	if ($total_page>=2 && $page != $total_page)		
+	{
+	$new_page = $page+1;	
+	echo "<li> <a href='explore_list.php?page=$new_page'>다음 ▶</a> </li>";
+	}
+	else 
+	echo "<li>&nbsp;</li>";
+	?>
+		</ul> <!-- page -->	    	
+	<br>
 			
-	</div>
-		</div>
+	
+ 
+</div> <!-- board_box -->
+</section>
 		<script>
 			function logout() {
             const data = confirm("로그아웃 하시겠습니까?");
